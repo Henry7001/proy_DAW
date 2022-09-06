@@ -9,7 +9,7 @@ class ShirtDao
     static private $getAll = "SELECT * FROM camisas";
     static private $getBySize = "SELECT * FROM camisas WHERE  (UPPER(talla) LIKE UPPER(:talla) OR :talla = '')";
     static private $getById = "SELECT * FROM camisas WHERE  id= :id";
-    static private $create = "INSERT INTO camisas(modelo, talla, precio, tela, cantidad, fecha_actualizacion) VALUES ( :modelo, :talla, :precio, :tela, :cantidad, :fecha)";
+    static private $create = "INSERT INTO camisas (modelo, talla, precio, tela, cantidad, fecha_actualizacion) VALUES ( :modelo, :talla, :precio, :tela, :cantidad, :fecha)";
     static private $update = "UPDATE camisas SET modelo=:modelo, talla=:talla, precio=:precio, tela=:tela, cantidad=:cantidad,  fecha_actualizacion=:fecha WHERE id=:id";
 
 

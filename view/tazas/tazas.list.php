@@ -9,8 +9,8 @@
                 <hr>
                 <div class="col-sm-6">
                     <form action="index.php?type=tazas&function=searchByTamano" method="POST">
-                        <label for="tamano">Buscar por Tamaño</label>
-                        <select class="form-control" name="tamano" id="tamano" required>
+                        <label for="tamano">Buscar por Tamaño</label><br>
+                        <select name="tamano" id="tamano" required>
                             <option value="">Seleccione un tamaño...</option>
                             <?php
                             foreach ($tamaño as $t) {
@@ -19,6 +19,11 @@
                             ?>
                         </select>
                         <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Buscar</button>
+                        <?php
+                            if (isset($actualizar)) {
+                                echo $actualizar;
+                            }
+                        ?>
                     </form>
                 </div>
                 <hr>
@@ -46,6 +51,7 @@
                         <td>
                             <a href="tazas.edit.php?id=<?php echo $tazas['id'] ?>" class="btn btn-primary">
                                 <i class="fas fa-marker"></i>
+                             Editar</a>
                         </td>
                         </tr>
                         <?php endforeach; ?>

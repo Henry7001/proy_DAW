@@ -1,7 +1,6 @@
 <?php
 require_once 'model/dao/ShirtDao.php';
 require_once 'model/dto/ShirtDto.php';
-
 class ShirtController
 {
     private $model;
@@ -39,7 +38,6 @@ class ShirtController
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $shirt = new ShirtDto();
-
             $shirt->setModelo(htmlentities($_POST['modelo']));
             $shirt->setPrecio(htmlentities($_POST['precio']));
             $shirt->setCantidad(htmlentities($_POST['cantidad']));
@@ -48,8 +46,7 @@ class ShirtController
             $fechaActual = new DateTime('NOW');
             $shirt->setFechaActualizacion($fechaActual->format('Y-m-d H:i:s'));
             $exito = $this->model->insert($shirt);
-
-            $msj = 'Camisa guardado exitosamente';
+            $msj = 'Camisa guardada exitosamente';
             $color = 'primary';
             if (!$exito) {
                 $msj = "No se pudo realizar el guardado";

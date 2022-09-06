@@ -7,6 +7,7 @@ class TazasDto
     private $descripcion;
     private $valor;
     private $cantidad;
+    private $fechaActualizacion;
 
     public function getId()
     {
@@ -66,6 +67,16 @@ class TazasDto
     public function setCantidad($cantidad)
     {
         $this->cantidad = $cantidad;
+    }
+
+    public function getFechaActualizacion()
+    {
+        return $this->fechaActualizacion;
+    }
+
+    public function setFechaactualizacion($fechaActualizacion)
+    {
+        $this->fechaActualizacion = $fechaActualizacion;
     }
 }
 ?>

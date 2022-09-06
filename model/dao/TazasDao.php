@@ -1,11 +1,13 @@
 <?php
 require_once "config/Conexion.php";
+require_once "model/dto/TazasDto.php";
 class TazasDao
 {
     private $con;
 
     static private $getByTamano = "SELECT * FROM tazas WHERE  (UPPER(tamaño) LIKE UPPER(:tamano) OR :tamano = '')";
-
+    static private $getAll = "SELECT * FROM tazas";
+    static private $create = "INSERT INTO tazas (nombre, tamaño, descripcion, valor, cantidad, fecha_actualizacion) VALUES ( :nombre, :tamano, :descripcion, :valor, :cantidad, :fecha)";
     public function __construct()
     {
         $this->con = Conexion::getConexion();
@@ -13,20 +15,28 @@ class TazasDao
 
     public function getAll()
     {
-        $stmt = $this->con->prepare("SELECT * FROM tazas");
+        $stmt = $this->con->prepare(TazasDao::$getAll);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function insert($nombre, $tamano, $descripcion, $valor, $cantidad)
+    public function insert(TazasDto $tazas)
     {
-        $stmt = $this->con->prepare("INSERT INTO tazas (nombre, tamano, descripcion, valor, cantidad) VALUES (:nombre, :tamano, :descripcion, :valor, :cantidad)");
-        $stmt->bindParam(':nombre', $nombre);
-        $stmt->bindParam(':tamano', $tamano);
-        $stmt->bindParam(':descripcion', $descripcion);
-        $stmt->bindParam(':valor', $valor);
-        $stmt->bindParam(':cantidad', $cantidad);
-        $stmt->execute();
+        try {
+            $stmt = $this->con->prepare(TazasDao::$create);
+            $data = [
+                "nombre" => $tazas->getNombre(),
+                "tamano" => $tazas->getTamano(),
+                "descripcion" => $tazas->getDescripcion(),
+                "valor" => $tazas->getValor(),
+                "cantidad" => $tazas->getCantidad(),
+                "fecha" => $tazas->getFechaActualizacion(),
+            ];
+            $stmt->execute($data);
+            return ($stmt->rowCount() > 0);
+        } catch (Exception $e) {
+            return false;
+        }
     }
 
     public function getByTamano($tamano)

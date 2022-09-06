@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-12">
                 <h1>Nueva Taza</h1>
-                <form action="tazas.php" method="post">
+                <form action="index.php?type=tazas&function=create" method="POST" name="formTazasNew" id="formTazasNew">
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
                         <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre de la taza" required>
@@ -15,7 +15,6 @@
                         <select class="form-control" name="tamano" id="tamano" required>
                             <option value="">Seleccione un tamaño</option>
                             <?php
-                            // Se recorre el arreglo $tamaño para mostrar los valores en el select
                             foreach ($tamaño as $t) {
                                 echo "<option value='$t'>$t</option>";
                             }
@@ -34,8 +33,10 @@
                         <label for="cantidad">Cantidad</label>
                         <input type="number" class="form-control" name="cantidad" id="cantidad" placeholder="Cantidad de tazas" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                    <a href="tazas.php" class="btn btn-danger">Cancelar</a>
+                    <div class="form-group mx-auto">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <a href="index.php?type=tazas&function=index" class="btn btn-primary">Cancelar</a>
+                    </div>
                 </form>
             </div>
         </div>
