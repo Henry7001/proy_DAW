@@ -5,7 +5,7 @@
             <div class="col-md-12">
                 <h1 class="text-center">Lista de Tazas</h1>
                 <hr>
-                <a href="tazas.new.php" class="btn btn-primary">Agregar Taza</a>
+                <a href="view/tazas/tazas.new.php" class="btn btn-primary">Agregar Taza</a>
                 <hr>
                 <div class="col-sm-6">
                     <form action="index.php?type=tazas&function=searchByNombre" method="POST">

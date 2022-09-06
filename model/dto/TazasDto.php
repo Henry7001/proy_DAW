@@ -1,5 +1,4 @@
 <?php
-//dto para tazas sin comentarios
 class TazasDto
 {
     private $id;
@@ -70,6 +69,3 @@ class TazasDto
     }
 }
 ?>
-
-    }
-}
