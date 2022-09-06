@@ -9,7 +9,7 @@
                 </form>
             </div>
             <div class="col-sm-6 d-flex flex-column align-items-end">
-                <a href="index.php?c=productos&f=view_new">
+                <a href="index.php?type=shirt&function=view_new">
                     <button type="button" class="btn btn-primary">
                         <i class="fas fa-plus"></i>
                         Nuevo
@@ -40,7 +40,7 @@
                         <td><?php echo $row['cantidad'] ?></td>
                         <td>
                             <a class="btn btn-primary"
-                               href="index.php?type=shirt&f=view_edit&id=<?php echo $row['id']; ?>">
+                               href="index.php?type=shirt&function=view_edit&id=<?php echo $row['id']; ?>">
                                 <i class="fas fa-marker"></i></a>
                         </td>
                     </tr>

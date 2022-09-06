@@ -7,7 +7,7 @@ class ShirtDao
     private $con;
 
     static private $getAll = "SELECT * FROM camisas";
-    static private $getBySize = "SELECT * FROM camisas WHERE  talla= :talla";
+    static private $getBySize = "SELECT * FROM camisas WHERE  (UPPER(talla) LIKE UPPER(:talla) OR :talla = '')";
     static private $getById = "SELECT * FROM camisas WHERE  id= :id";
     static private $create = "INSERT INTO camisas(modelo, talla, precio, tela, cantidad, fecha_actualizacion) VALUES ( :modelo, :talla, :precio, :tela, :cantidad, :fecha)";
     static private $update = "UPDATE camisas SET modelo=:modelo, talla=:talla, precio=:precio, tela=:tela, cantidad=:cantidad,  fecha_actualizacion=:fecha WHERE id=:id";
@@ -25,7 +25,8 @@ class ShirtDao
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
- public function getById($id)
+
+    public function getById($id)
     {
         $stmt = $this->con->prepare(ShirtDao::$getById);
         $data = ["id" => $id];
@@ -36,6 +37,7 @@ class ShirtDao
     public function getBySize($size)
     {
         $stmt = $this->con->prepare(ShirtDao::$getBySize);
+        $size = "%".$size."%";
         $data = ["talla" => $size];
         $stmt->execute($data);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);

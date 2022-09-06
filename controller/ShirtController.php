@@ -1,32 +1,41 @@
-
 <?php
 require_once 'model/dao/ShirtDao.php';
 require_once 'model/dto/ShirtDto.php';
 
-class ShirtController {
+class ShirtController
+{
     private $model;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->model = new ShirtDao();
     }
 
-    public function index() {
+    public function index()
+    {
         $result = $this->model->getAll();
-        require_once VSHIRT.'list.php';
+        require_once VSHIRT . 'list.php';
     }
 
-    public function searchBySize(){
-        $size = (!empty($_POST["size"]))?htmlentities($_POST["size"]):"";
+    public function searchBySize()
+    {
+        $size = (!empty($_POST["size"])) ? htmlentities($_POST["size"]) : "";
         $result = $this->model->getBySize($size);
-        require_once VSHIRT.'list.php';
+        require_once VSHIRT . 'list.php';
     }
-    
-    public function view_new(){
-        require_once VSHIRT.'nuevo.php';
+
+    public function view_new()
+    {
+//        implementacion pendiente para entrega final :D
+        $tallas = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
+        $modelos = ['Modelo-1', 'Modelo-2'];
+        $telas = ['Algodon', 'Poliester', 'Franela'];
+        require_once VSHIRT . 'new.php';
     }
 
 
-    public function create() {
+    public function create()
+    {
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $shirt = new ShirtDto();
@@ -55,19 +64,23 @@ class ShirtController {
             header('Location:index.php?type=Shirt&f=index');
         }
     }
-    
 
 
-    public function view_edit(){
+    public function view_edit()
+    {
 
-        $id= $_REQUEST['id'];
-
+        $id = $_REQUEST['id'];
+        $tallas = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
+        $modelos = ['Modelo-1', 'Modelo-2'];
+        $telas = ['Algodon', 'Poliester', 'Franela'];
         $shirt = $this->model->getById($id);
 
-        require_once VSHIRT.'edit.php';
+        require_once VSHIRT . 'edit.php';
 
     }
-    public function edit(){
+
+    public function edit()
+    {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $shirt = new ShirtDto();
 
@@ -79,12 +92,12 @@ class ShirtController {
             $shirt->setTela(htmlentities($_POST['tela']));
             $fechaActual = new DateTime('NOW');
             $shirt->setFechaActualizacion($fechaActual->format('Y-m-d H:i:s'));
-            $exito = $this->model->insert($shirt);
+            $exito = $this->model->update($shirt);
 
-            $msj = 'Camisa guardado exitosamente';
+            $msj = 'Camisa actualizada exitosamente';
             $color = 'primary';
             if (!$exito) {
-                $msj = "No se pudo realizar el guardado";
+                $msj = "No se pudo realizar el actualizado";
                 $color = "danger";
             }
             if (!isset($_SESSION)) {
