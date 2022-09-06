@@ -7,9 +7,10 @@ class ShirtDao
     private $con;
 
     static private $getAll = "SELECT * FROM camisas";
-    static private $getBySize = "SELECT * FROM camisa WHERE  talla= :talla";
-    static private $create = "INSERT INTO camisas(modelo, talla, precio, tela, cantidad) VALUES ( :modelo, :talla, :precio, :tela, :cantidad)";
-    static private $update = "UPDATE camisas SET modelo=:modelo, talla=:talla, precio=:precio, tela=:tela, cantidad=:cantidad WHERE id=:id";
+    static private $getBySize = "SELECT * FROM camisas WHERE  talla= :talla";
+    static private $getById = "SELECT * FROM camisas WHERE  id= :id";
+    static private $create = "INSERT INTO camisas(modelo, talla, precio, tela, cantidad, fecha_actualizacion) VALUES ( :modelo, :talla, :precio, :tela, :cantidad, :fecha)";
+    static private $update = "UPDATE camisas SET modelo=:modelo, talla=:talla, precio=:precio, tela=:tela, cantidad=:cantidad,  fecha_actualizacion=:fecha WHERE id=:id";
 
 
     public function __construct()
@@ -23,6 +24,13 @@ class ShirtDao
         $stmt = $this->con->prepare(ShirtDao::$getAll);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+ public function getById($id)
+    {
+        $stmt = $this->con->prepare(ShirtDao::$getById);
+        $data = ["id" => $id];
+        $stmt->execute($data);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     public function getBySize($size)
@@ -43,6 +51,7 @@ class ShirtDao
                 "precio" => $shirt->getPrecio(),
                 "tela" => $shirt->getTela(),
                 "cantidad" => $shirt->getCantidad(),
+                "fecha" => $shirt->getFechaActualizacion(),
             ];
             $stmt->execute($data);
             return ($stmt->rowCount() > 0);
@@ -63,6 +72,7 @@ class ShirtDao
                 "precio" => $shirt->getPrecio(),
                 "tela" => $shirt->getTela(),
                 "cantidad" => $shirt->getCantidad(),
+                "fecha" => $shirt->getFechaActualizacion(),
             ];
             $stmt->execute($data);
             return ($stmt->rowCount() > 0);

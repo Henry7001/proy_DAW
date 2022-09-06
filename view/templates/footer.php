@@ -1,0 +1,40 @@
+<!-- parte final del documento-->
+<footer class="footer">
+    <div class="row">
+        <div class="col-sm-4 d-flex flex-column">
+            <a href="http://www.facebook.com/">Facebook</a>
+            <a href="http://www.twitter.com/">Twitter</a>
+            <a href="http://www.instagram.com/">Instagram</a>
+            <a href="http://www.google.com/">Google+</a>
+        </div>
+
+        <div class="col-sm-4 d-flex flex-column align-items-center">
+            <address>
+                <h3>Oficina Matriz</h3>
+                <p>Guayaquil, Ecuador</p>
+                <p><a href="tel:+5930000111">593-0000111</a></p>
+                <p><a href="mailto: abc@example.com">abc@example.com</a></p>
+            </address>
+        </div>
+
+        <div class="col-sm-4 d-flex flex-column align-items-end">
+            <a href="">Nosotros</a>
+            <a href="">Cat&aacute;logo</a>
+            <a href="">T&eacute;rminos y condiciones</a>
+            <a href="">Contactos</a>
+        </div>
+    </div>
+    <div>
+        <p class="text-center"> Copyright © <?php echo date('Y'); ?> Mi tienda. Todos los derechos reservados</p>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+
+
+</body>
+</html>
+

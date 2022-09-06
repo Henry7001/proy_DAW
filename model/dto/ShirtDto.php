@@ -8,6 +8,7 @@ class ShirtDto
     private $talla;
     private $precio;
     private $cantidad;
+    private $fechaActualizacion;
 
     public function getId()
     {
@@ -69,4 +70,13 @@ class ShirtDto
         $this->cantidad = $cantidad;
     }
 
+    public function getFechaActualizacion()
+    {
+        return $this->fechaActualizacion;
+    }
+
+    public function setFechaActualizacion($fechaActualizacion)
+    {
+        $this->fechaActualizacion = $fechaActualizacion;
+    }
 }

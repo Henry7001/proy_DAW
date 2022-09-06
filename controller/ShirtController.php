@@ -1,4 +1,4 @@
-// autor:Piguave Saltos Marlon
+
 <?php
 require_once 'model/dao/ShirtDao.php';
 require_once 'model/dto/ShirtDto.php';
@@ -11,49 +11,36 @@ class ShirtController {
     }
 
     public function index() {
-        $resultados = $this->model->getAll();
+        $result = $this->model->getAll();
         require_once VSHIRT.'list.php';
     }
 
     public function searchBySize(){
         $size = (!empty($_POST["size"]))?htmlentities($_POST["size"]):"";
-        $resultados = $this->model->getBySize($size);
+        $result = $this->model->getBySize($size);
         require_once VSHIRT.'list.php';
     }
     
     public function view_new(){
-        //comunicarse con el modelo
-        $modeloCat = new CategoriasDAO();
-        $categorias = $modeloCat->selectAll();
-
-        // comunicarse con la vista
         require_once VSHIRT.'nuevo.php';
-
     }
 
-    // lee datos del formulario de nuevo producto y lo inserta en la bdd (llamando al modelo)
-    public function new() {
-        //cuando la solicitud es por post
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {// insertar el producto
-            // considerar verificaciones
-            //if(!isset($_POST['codigo'])){ header('');}
-            $prod = new Producto();
-            // lectura de parametros
-            $prod->setCodigo(htmlentities($_POST['codigo']));
-            $prod->setNombre(htmlentities($_POST['nombre']));
-            $prod->setDescripcion(htmlentities($_POST['descripcion']));
-            $prod->setPrecio(htmlentities($_POST['precio']));
-            $prod->setIdCategoria(htmlentities($_POST['categoria']));
-            $estado = (isset($_POST['estado'])) ? 1 : 0; // ejemplo de dato no obligatorio
-            $prod->setEstado($estado);
-            $prod->setUsuario('usuario'); //$_SESSION['usuario'];
+
+    public function create() {
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $shirt = new ShirtDto();
+
+            $shirt->setModelo(htmlentities($_POST['modelo']));
+            $shirt->setPrecio(htmlentities($_POST['precio']));
+            $shirt->setCantidad(htmlentities($_POST['cantidad']));
+            $shirt->setTalla(htmlentities($_POST['talla']));
+            $shirt->setTela(htmlentities($_POST['tela']));
             $fechaActual = new DateTime('NOW');
-            $prod->setFechaActualizacion($fechaActual->format('Y-m-d H:i:s'));
+            $shirt->setFechaActualizacion($fechaActual->format('Y-m-d H:i:s'));
+            $exito = $this->model->insert($shirt);
 
-            //comunicar con el modelo
-            $exito = $this->model->insert($prod);
-
-            $msj = 'Producto guardado exitosamente';
+            $msj = 'Camisa guardado exitosamente';
             $color = 'primary';
             if (!$exito) {
                 $msj = "No se pudo realizar el guardado";
@@ -65,82 +52,48 @@ class ShirtController {
             $_SESSION['mensaje'] = $msj;
             $_SESSION['color'] = $color;
             //llamar a la vista
-            header('Location:index.php?c=Productos&f=index');
+            header('Location:index.php?type=Shirt&f=index');
         }
     }
-
-    public function delete(){
-        //leeer parametros
-        $prod = new Producto();
-        $prod->setId(htmlentities($_REQUEST['id']));
-        $prod->setUsuario('usuario'); //$_SESSION['usuario'];
-        $fechaActual = new DateTime('NOW');
-        $prod->setFechaActualizacion($fechaActual->format('Y-m-d H:i:s'));
-
-        //comunicando con el modelo
-        $exito = $this->model->delete($prod);
-        $msj = 'Producto eliminado exitosamente';
-        $color = 'primary';
-        if (!$exito) {
-            $msj = "No se pudo eliminar la actualizacion";
-            $color = "danger";
-        }
-        if(!isset($_SESSION)){ session_start();};
-        $_SESSION['mensaje'] = $msj;
-        $_SESSION['color'] = $color;
-        //llamar a la vista
-        header('Location:index.php?c=productos&f=index');
-    }
+    
 
 
-    // muestra el formulario de editar producto
     public function view_edit(){
-        //leer parametro
-        $id= $_REQUEST['id']; // verificar, limpiar
-        //comunicarse con el modelo de productos
-        $prod = $this->model->selectOne($id);
-        //comunicarse con el modelo de categorias
-        $modeloCat = new CategoriasDAO();
-        $categorias = $modeloCat->selectAll();
 
-        // comunicarse con la vista
+        $id= $_REQUEST['id'];
+
+        $shirt = $this->model->getById($id);
+
         require_once VSHIRT.'edit.php';
 
     }
-
-    // lee datos del formulario de editar producto y lo actualiza en la bdd (modelo)
     public function edit(){
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {// actualizar
-            // verificaciones
-            //if(!isset($_POST['codigo'])){ header('');}
-            // leer parametros
-            $prod = new Producto();
-            $prod->setId(htmlentities($_POST['id']));
-            $prod->setCodigo(htmlentities($_POST['codigo']));
-            $prod->setNombre(htmlentities($_POST['nombre']));
-            $prod->setDescripcion(htmlentities($_POST['descripcion']));
-            $prod->setPrecio(htmlentities($_POST['precio']));
-            $prod->setIdCategoria(htmlentities($_POST['categoria']));
-            $estado = (isset($_POST['estado'])) ? 1 : 0; // un dato no requerido
-            $prod->setEstado($estado);
-            $prod->setUsuario('usuario'); //$_SESSION['usuario'];
-            $fechaActual = new DateTime('NOW');
-            $prod->setFechaActualizacion($fechaActual->format('Y-m-d H:i:s'));
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $shirt = new ShirtDto();
 
-            //llamar al modelo
-            $exito = $this->model->update($prod);
-            $msj = 'Producto actualizado exitosamente';
+            $shirt->setId(htmlentities($_POST['id']));
+            $shirt->setModelo(htmlentities($_POST['modelo']));
+            $shirt->setPrecio(htmlentities($_POST['precio']));
+            $shirt->setCantidad(htmlentities($_POST['cantidad']));
+            $shirt->setTalla(htmlentities($_POST['talla']));
+            $shirt->setTela(htmlentities($_POST['tela']));
+            $fechaActual = new DateTime('NOW');
+            $shirt->setFechaActualizacion($fechaActual->format('Y-m-d H:i:s'));
+            $exito = $this->model->insert($shirt);
+
+            $msj = 'Camisa guardado exitosamente';
             $color = 'primary';
             if (!$exito) {
-                $msj = "No se pudo realizar la actualizacion";
+                $msj = "No se pudo realizar el guardado";
                 $color = "danger";
             }
-            if(!isset($_SESSION)){ session_start();};
+            if (!isset($_SESSION)) {
+                session_start();
+            };
             $_SESSION['mensaje'] = $msj;
             $_SESSION['color'] = $color;
             //llamar a la vista
-            header('Location:index.php?c=productos&f=index');
-
+            header('Location:index.php?type=Shirt&f=index');
         }
     }
 }
