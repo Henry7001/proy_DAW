@@ -1,4 +1,4 @@
-<?php HEADER?>
+<?php require_once HEADER?>
 
     <div class="container">
         <div class="row">
@@ -7,6 +7,12 @@
                 <hr>
                 <a href="tazas.new.php" class="btn btn-primary">Agregar Taza</a>
                 <hr>
+                <div class="col-sm-6">
+                    <form action="index.php?type=tazas&function=searchByNombre" method="POST">
+                        <input type="text" name="size" id="busqueda" placeholder="buscar por talla..."/>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i>Buscar</button>
+                    </form>
+                </div>
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
@@ -20,18 +26,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach($tazas as $taza): ?>
+                        <?php foreach($resTazas as $tazas): ?>
                         <tr>
-                            <td><?php echo $taza->id; ?></td>
-                            <td><?php echo $taza->nombre; ?></td>
-                            <td><?php echo $taza->tamano; ?></td>
-                            <td><?php echo $taza->descripcion; ?></td>
-                            <td><?php echo $taza->valor; ?></td>
-                            <td><?php echo $taza->cantidad; ?></td>
-                            <td>
-                                <a href="tazas.edit.php?id=<?php echo $taza->id; ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                                <a href="tazas.delete.php?id=<?php echo $taza->id; ?>" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                            </td>
+                        <td><?php echo $tazas['id'] ?></td>
+                        <td><?php echo $tazas['nombre'] ?></td>
+                        <td><?php echo $tazas['tamaño'] ?></td>
+                        <td><?php echo $tazas['descripcion'] ?></td>
+                        <td><?php echo "$" . $tazas['valor'] ?></td>
+                        <td><?php echo $tazas['cantidad'] ?></td>
+                        <td>
+                            <a href="tazas.edit.php?id=<?php echo $tazas['id'] ?>" class="btn btn-primary">
+                                <i class="fas fa-marker"></i>
+                        </td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>
@@ -40,4 +46,4 @@
         </div>
     </div>
 
-<?php FOOTER?>
+<?php require_once FOOTER?>

@@ -9,6 +9,7 @@ class FrontController
         $controlador = (!empty($_REQUEST['type'])) ? htmlentities($_REQUEST['type']) : CONTROLADOR_PRINCIPAL;
         $controlador = ucwords(strtolower($controlador)) . "Controller";
         $funcion = (!empty($_REQUEST['function'])) ? htmlentities($_REQUEST['function']) : FUNCION_PRINCIPAL;
+        
 
         require_once 'controller/' . $controlador . '.php';
         $cont = new  $controlador();

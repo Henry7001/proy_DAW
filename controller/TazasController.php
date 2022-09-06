@@ -1,5 +1,5 @@
 <?php
-//crear Tazas Controller usando los archivos de la carpeta model/dao y model/dto ya hechos sin comentarios
+require_once 'model/dao/TazasDao.php';
 class TazasController
 {
     private $model;
@@ -7,12 +7,14 @@ class TazasController
     {
         $this->model = new TazasDao();
     }
-    public function Index()
+
+    public function index()
     {
-        require_once 'view/header.php';
-        require_once 'view/tazas/shirt.php';
-        require_once 'view/footer.php';
+        $this->model=new TazasDao();
+        $resTazas = $this->model->getAll();
+        require_once VTAZAS.'list.php';
     }
+    /*
     public function Crud()
     {
         $taz = new TazasDto();
@@ -34,11 +36,14 @@ class TazasController
         $taz->__SET('cantidad', $_REQUEST['cantidad']);
         $this->model->Actualizar($taz);
         header('Location: index.php');
-    }
+    }*/
+/*
+
     public function Eliminar()
     {
         $this->model->Eliminar($_REQUEST['id']);
         header('Location: index.php');
     }
+*/
 }
 ?>

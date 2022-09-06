@@ -10,10 +10,11 @@ define("FOOTER", 'view/templates/footer.php');
 
 // ruta de vistas modulo shirt
 define("VSHIRT", "view/shirt/shirt.");
+define("VTAZAS", "view/tazas/tazas.");
 
 
-// conexion bb
-define("DBNAME","mvc");
+// conexion bd
+define("DBNAME","pruebausuarios");
 define("DBUSER","root");
 define("DBPASSWORD","");
 

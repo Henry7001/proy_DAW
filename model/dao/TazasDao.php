@@ -1,18 +1,23 @@
 <?php
-//DAO de tazas sin "//" en el codigo
+require_once "config/Conexion.php";
 class TazasDao
 {
-    private $pdo;
+    private $con;
 
     public function __construct()
     {
-        try {
-            $this->pdo = Database::StartUp();
-        } catch (Exception $e) {
-            die($e->getMessage());
-        }
+        $this->con = Conexion::getConexion();
     }
 
+    public function getAll()
+    {
+        $stmt = $this->con->prepare("SELECT * FROM tazas");
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
+/*
     public function Listar()
     {
         try {
@@ -121,6 +126,6 @@ class TazasDao
             die($e->getMessage());
         }
     }
+*/
 }
-
 ?>
