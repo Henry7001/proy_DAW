@@ -20,13 +20,7 @@
     <a class="navbar-brand" href="index.php">Mi Tienda</a>
     <ul class="navbar-nav mr-auto">
         <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.php?c=index&f=index&p=about">Nosotros</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.php?c=Productos&f=index">Productos</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.php?c=Categorias&f=index">Categorias</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.php?c=Tortas&f=index">Tortas</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.php?c=Pedidos&f=index">Pedidos</a></li>
-
-        <li class="nav-item"><a class="nav-link" href="index.php?c=index&f=index&p=contacto">Contacto</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.php?type=index&function=index&p=about">Camisas</a></li>
 
     </ul>
     <ul class="navbar-nav ml-auto">
