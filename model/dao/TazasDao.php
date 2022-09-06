@@ -4,6 +4,8 @@ class TazasDao
 {
     private $con;
 
+    static private $getByTamano = "SELECT * FROM tazas WHERE  (UPPER(tamaño) LIKE UPPER(:tamano) OR :tamano = '')";
+
     public function __construct()
     {
         $this->con = Conexion::getConexion();
@@ -27,16 +29,13 @@ class TazasDao
         $stmt->execute();
     }
 
-    public function alter($id, $nombre, $tamano, $descripcion, $valor, $cantidad)
+    public function getByTamano($tamano)
     {
-        $stmt = $this->con->prepare("UPDATE tazas SET nombre=:nombre, tamano=:tamano, descripcion=:descripcion, valor=:valor, cantidad=:cantidad WHERE id=:id");
-        $stmt->bindParam(':id', $id);
-        $stmt->bindParam(':nombre', $nombre);
-        $stmt->bindParam(':tamano', $tamano);
-        $stmt->bindParam(':descripcion', $descripcion);
-        $stmt->bindParam(':valor', $valor);
-        $stmt->bindParam(':cantidad', $cantidad);
-        $stmt->execute();
+        $stmt = $this->con->prepare(TazasDao::$getByTamano);
+        $size = "%".$tamano."%";
+        $data = ["tamano" => $tamano];
+        $stmt->execute($data);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
 ?>
