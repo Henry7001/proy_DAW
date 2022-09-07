@@ -11,6 +11,7 @@ define("FOOTER", 'view/templates/footer.php');
 // ruta de vistas modulo shirt
 define("VSHIRT", "view/shirt/shirt.");
 define("VTAZAS", "view/tazas/tazas.");
+define("VCLIENTES", "view/clientes/clientes.");
 
 
 // conexion bd
