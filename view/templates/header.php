@@ -35,6 +35,7 @@
     Mi Tienda de productos </h1>
 
 <?php
+ini_set('display_errors', 1);
 if (!isset($_SESSION)) {
     session_start();
 };

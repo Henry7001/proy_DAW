@@ -7,7 +7,8 @@ class TazasDao
 
     static private $getByTamano = "SELECT * FROM tazas WHERE  (UPPER(tamaño) LIKE UPPER(:tamano) OR :tamano = '')";
     static private $getAll = "SELECT * FROM tazas";
-    static private $create = "INSERT INTO tazas (nombre, tamaño, descripcion, valor, cantidad, fecha_actualizacion) VALUES ( :nombre, :tamano, :descripcion, :valor, :cantidad, :fecha)";
+    static private $create = "INSERT INTO tazas (nombre, tamaño, descripcion, valor, cantidad, fechaactualizacion) VALUES ( :nombre, :tamano, :descripcion, :valor, :cantidad, :fecha)";
+    static private $update = "UPDATE tazas SET nombre = :nombre, tamaño = :tamano, descripcion = :descripcion, valor = :valor, cantidad = :cantidad, fechaactualizacion = :fecha WHERE id = :id";
     public function __construct()
     {
         $this->con = Conexion::getConexion();
@@ -35,6 +36,9 @@ class TazasDao
             $stmt->execute($data);
             return ($stmt->rowCount() > 0);
         } catch (Exception $e) {
+            //un alert en javascript llamado desde php
+            echo "<script>console.log($e->getMessage());</script>";
+             //
             return false;
         }
     }
