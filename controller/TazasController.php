@@ -67,7 +67,7 @@ class TazasController
 
         $id = $_GET['id'];
         $tamaño = $this->tamaño;
-        $resTazas = $this->model->getById($id);
+        $tazas = $this->model->getById($id);
         require_once VTAZAS.'edit.php';
 
     }
