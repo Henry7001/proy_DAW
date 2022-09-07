@@ -1,10 +1,11 @@
 <?php
+//autor:Henry Miguel Ruiz Reyes
 require_once 'model/dao/TazasDao.php';
 require_once 'model/dto/TazasDto.php';
 class TazasController
 {
     private $model;
-    private $tamaño = ['60 - 80ml', '100 – 220 ml', '240 -300 ml', '300 - 500 ml'];
+    private $tamaño = ['60 - 80ml', '100 – 220 ml', '240 - 300 ml', '300 - 500 ml'];
     private $actualizar = '<a href="index.php?type=tazas" class="btn btn-primary"><i class="fas fa-sync-alt"></i> Ver todos</a>';
     public function __construct()
     {

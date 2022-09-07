@@ -1,3 +1,4 @@
+<!--autor:Henry Miguel Ruiz Reyes-->
 <?php require_once HEADER?>
 <body>
     <!-- Formulario de insertar nuevos datos con la función insert de TazasDao -->

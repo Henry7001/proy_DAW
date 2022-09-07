@@ -1,4 +1,5 @@
 <?php
+//autor:Henry Miguel Ruiz Reyes
 class TazasDto
 {
     private $id;

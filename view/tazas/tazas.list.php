@@ -1,5 +1,5 @@
+<!--autor:Henry Miguel Ruiz Reyes-->
 <?php require_once HEADER?>
-
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -50,6 +50,7 @@
                         <td><?php echo $tazas['cantidad'] ?></td>
                         <td>
                             <a href="index.php?type=tazas&function=editTaza&id=<?php echo $tazas['id'] ?>" class="btn btn-primary"><i class="fas fa-edit"></i> Editar</a>
+                            
                         </td>
                         </tr>
                         <?php endforeach; ?>

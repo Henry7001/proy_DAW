@@ -1,4 +1,5 @@
 <?php
+//autor:Henry Miguel Ruiz Reyes
 require_once "config/Conexion.php";
 require_once "model/dto/TazasDto.php";
 class TazasDao

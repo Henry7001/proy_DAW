@@ -1,5 +1,5 @@
+<!--autor:Henry Miguel Ruiz Reyes-->
 <?php require_once HEADER;?>
-
     <div class="container">
         <div class="row">
             <div class="col-12">
