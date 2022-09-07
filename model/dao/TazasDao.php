@@ -50,7 +50,7 @@ class TazasDao
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function update(TazasDto $tazas)
+    public function                update(TazasDto $tazas)
     {
         try {
             $stmt = $this->con->prepare(TazasDao::$update);

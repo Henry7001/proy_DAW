@@ -83,7 +83,7 @@ class TazasController
             $tazas->setCantidad(htmlentities($_POST['cantidad']));
             $fechaActual = new DateTime('NOW');
             $tazas->setFechaActualizacion($fechaActual->format('Y-m-d H:i:s'));
-            $exito = $this->model->insert($tazas);
+            $exito = $this->model->update($tazas);
             $msj = 'Taza guardada exitosamente';
             $color = 'primary';
             if (!$exito) {
@@ -96,7 +96,7 @@ class TazasController
             $_SESSION['mensaje'] = $msj;
             $_SESSION['color'] = $color;
             //llamar a la vista
-            header('Location:index.php?type=Shirt&f=index');
+            header('Location:index.php?type=tazas&f=index');
         }
     }
 

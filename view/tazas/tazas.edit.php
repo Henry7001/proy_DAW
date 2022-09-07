@@ -1,7 +1,5 @@
-<?php require_once HEADER;
-require_once 'controller/tazasController.php';
-?>
-    <!-- Formulario de editar datos existentes con la función update de tazassDao -->
+<?php require_once HEADER;?>
+
     <div class="container">
         <div class="row">
             <div class="col-12">
