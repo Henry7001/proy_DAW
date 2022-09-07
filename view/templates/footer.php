@@ -1,4 +1,7 @@
 <!-- parte final del documento-->
+<br>
+<br>
+<br>
 <footer class="bg-dark text-center text-white fixed-bottom">
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">

@@ -13,26 +13,26 @@
           integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
           crossorigin="anonymous">
     <title>Productos</title>
+    <style>
+        .bg-custom-2 {
+            background-color: rgba(0, 0, 0, 255);
+        }
+    </style>
+
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-<div class="container-fluid">
-            <a class="navbar-brand" href="#">Rubber Store</a>
-            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-              <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarColor02">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item active">
-                  <a class="nav-link" aria-current="page" href="index.php?type=shirt">Camisetas</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="index.php?type=tazas">Tazas</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-</nav>
+    <nav class="navbar navbar-dark bg-dark navbar-expand-sm">
+    <a class="navbar-brand" href="#"> Rubber Store</a>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost/proy_daw/index.php?type=shirt">Camisetas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost/proy_daw/index.php?type=tazas">Tazas</a>
+            </li>
+        </ul>
+    </nav>
+</body>
 <br>
 <?php
 ini_set('display_errors', 1);
