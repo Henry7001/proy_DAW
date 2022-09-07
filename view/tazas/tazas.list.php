@@ -49,8 +49,8 @@
                         <td><?php echo "$" . $tazas['valor'] ?></td>
                         <td><?php echo $tazas['cantidad'] ?></td>
                         <td>
-                            <a href="index.php?type=tazas&function=editTaza&id=<?php echo $tazas['id'] ?>" class="btn btn-primary"><i class="fas fa-edit"></i> Editar</a>
-                            
+                            <a href="index.php?type=tazas&function=editTaza&id=<?php echo $tazas['id'] ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                            <a href="index.php?type=tazas&function=deleteTaza&id=<?php echo $tazas['id'] ?>" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                         </td>
                         </tr>
                         <?php endforeach; ?>

@@ -11,6 +11,7 @@ class TazasDao
     static private $create = "INSERT INTO tazas (nombre, tamaño, descripcion, valor, cantidad, fechaactualizacion) VALUES ( :nombre, :tamano, :descripcion, :valor, :cantidad, :fecha)";
     static private $update = "UPDATE tazas SET nombre = :nombre, tamaño = :tamano, descripcion = :descripcion, valor = :valor, cantidad = :cantidad, fechaactualizacion = :fecha WHERE id = :id";
     static private $getById = "SELECT * FROM tazas WHERE  id= :id";
+    static private $delete = "DELETE FROM tazas WHERE id = :id";
 
     public function __construct()
     {
@@ -23,6 +24,13 @@ class TazasDao
         $data = ["id" => $id];
         $stmt->execute($data);
         return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function delete($id)
+    {
+        $stmt = $this->con->prepare(TazasDao::$delete);
+        $data = ["id" => $id];
+        return $stmt->execute($data);
     }
 
     public function update(TazasDto $tazas)

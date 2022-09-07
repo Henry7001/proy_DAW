@@ -73,6 +73,24 @@ class TazasController
 
     }
 
+    public function deleteTaza(){
+        $id = $_GET['id'];
+        $exito = $this->model->delete($id);
+        $msj = 'Taza eliminada exitosamente';
+        $color = 'primary';
+        if (!$exito) {
+            $msj = "No se pudo realizar la eliminación";
+            $color = "danger";
+        }
+        if (!isset($_SESSION)) {
+            session_start();
+        };
+        $_SESSION['mensaje'] = $msj;
+        $_SESSION['color'] = $color;
+        //llamar a la vista
+        header('Location:index.php?type=Tazas&f=index');
+    }
+
     public function edit()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {

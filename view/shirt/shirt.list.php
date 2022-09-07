@@ -42,6 +42,9 @@
                             <a class="btn btn-primary"
                                href="index.php?type=shirt&function=view_edit&id=<?php echo $row['id']; ?>">
                                 <i class="fas fa-marker"></i></a>
+                            <a class="btn btn-danger"
+                                 href="index.php?type=shirt&function=deleteShirt&id=<?php echo $row['id']; ?>">
+                                  <i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
                 <?php } ?>
