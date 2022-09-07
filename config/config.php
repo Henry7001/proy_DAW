@@ -12,6 +12,7 @@ define("FOOTER", 'view/templates/footer.php');
 define("VSHIRT", "view/shirt/shirt.");
 define("VTAZAS", "view/tazas/tazas.");
 define("VCLIENTES", "view/clientes/clientes.");
+define("VGORRA", "view/gorra/gorra.");
 
 
 // conexion bd
