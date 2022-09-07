@@ -49,9 +49,7 @@
                         <td><?php echo "$" . $tazas['valor'] ?></td>
                         <td><?php echo $tazas['cantidad'] ?></td>
                         <td>
-                            <a href="tazas.edit.php?id=<?php echo $tazas['id'] ?>" class="btn btn-primary">
-                                <i class="fas fa-marker"></i>
-                             Editar</a>
+                            <a href="index.php?type=tazas&function=editTaza&id=<?php echo $tazas['id'] ?>" class="btn btn-primary"><i class="fas fa-edit"></i> Editar</a>
                         </td>
                         </tr>
                         <?php endforeach; ?>

@@ -35,7 +35,7 @@
                     </div>
                     <div class="form-group mx-auto">
                         <button type="submit" class="btn btn-primary">Guardar</button>
-                        <a href="index.php?type=tazas&function=index" class="btn btn-primary">Cancelar</a>
+                        <a href="index.php?type=tazas&function=index" class="btn btn-danger">Cancelar</a>
                     </div>
                 </form>
             </div>
