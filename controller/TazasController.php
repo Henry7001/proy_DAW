@@ -76,6 +76,7 @@ class TazasController
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $tazas = new TazasDto();
+            $tazas->setId(htmlentities($_POST['id']));
             $tazas->setNombre(htmlentities($_POST['nombre']));
             $tazas->setTamano(htmlentities($_POST['tamano']));
             $tazas->setDescripcion(htmlentities($_POST['descripcion']));
@@ -95,7 +96,6 @@ class TazasController
             };
             $_SESSION['mensaje'] = $msj;
             $_SESSION['color'] = $color;
-            //llamar a la vista
             header('Location:index.php?type=tazas&f=index');
         }
     }

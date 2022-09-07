@@ -11,7 +11,7 @@ class FrontController
         $funcion = (!empty($_REQUEST['function'])) ? htmlentities($_REQUEST['function']) : FUNCION_PRINCIPAL;
         
 
-        require_once 'controller/' . $controlador . '.php';
+        require_once 'controller/'.$controlador . '.php';
         $cont = new  $controlador();
         $cont->$funcion();
     }
