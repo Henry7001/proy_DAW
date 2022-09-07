@@ -16,11 +16,7 @@
                             <option value="">Seleccione un tamaño</option>
                             <?php
                             foreach ($tamaño as $t) {
-                                if ($tazas->getTamano() == $t) {
-                                    echo "<option value='$t' selected>$t</option>";
-                                } else {
-                                    echo "<option value='$t'>$t</option>";
-                                }
+                                echo ($tazas->getTamano() == $t) ? "<option value='$t' selected>$t</option>" : "<option value='$t'>$t</option>";
                             }
                             ?>
                         </select>
