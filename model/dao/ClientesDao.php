@@ -12,6 +12,7 @@ class ClientesDao
     static private $getById = "SELECT * FROM clientes WHERE  id= :id";
     static private $create = "INSERT INTO clientes (id, nombre, apellido, documento, registro) VALUES ( :id, :nombre, :apellido, :documento, :registro)";
     static private $update = "UPDATE clientes SET nombre=:nombre, apellido=:apellido, documento=:documento, registro=:registro WHERE id=:id";
+    static private $delete = "DELETE FROM clientes WHERE id=:id";
 
 
     public function __construct()
@@ -19,6 +20,13 @@ class ClientesDao
         $this->con = Conexion::getConexion();
     }
 
+    //funcion delete
+    public function delete($id){
+        $stmt = $this->con->prepare(ClientesDao::$delete);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        return $stmt->rowCount();
+    }
 
     public function getAll()
     {

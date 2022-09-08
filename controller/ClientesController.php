@@ -33,6 +33,17 @@ class ClientesController
         require_once VCLIENTES . 'new.php';
     }
 
+    //funcion delete
+    public function delete()
+    {
+        $id = $_GET['id'];
+        $result = $this->model->delete($id);
+        if ($result > 0) {
+            header('Location: index.php?type=clientes');
+        } else {
+            echo "Error al eliminar";
+        }
+    }
 
     public function create()
     {
