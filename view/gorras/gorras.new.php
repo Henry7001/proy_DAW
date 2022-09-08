@@ -1,10 +1,14 @@
-<!--autor:Paolo Alvararez-->
+<!--autor: Jean Paolo Alvarez -->
 <?php
 require_once HEADER ?>
     <div class="container">
         <div class="card card-body">
-            <form action="index.php?type=gorra&function=create" method="POST" name="formgorraNew" id="formgorraNew">
+            <form action="index.php?type=gorras&function=create" method="POST" name="formgorraNew" id="formgorraNew">
                 <div class="form-row">
+                <div class="form-group col-sm-6">
+                    <label>ID</label>
+                    <input type="number" name="id">              
+                </div>
 
                     <div class="form-group col-sm-6">
                         <label for="talla">Talla</label>
@@ -39,12 +43,12 @@ require_once HEADER ?>
                         <label for="modelo">Diseño</label>
                         <div>
                             <?php
-                            foreach ($diseños as $diseño) {
+                            foreach ($disenos as $diseno) {
                                 ?>
 
-                                <input type='radio' name='diseño' id='<?php echo "md-" . $diseño ?>'
-                                       value='<?php echo $diseño ?>'>
-                                <label for='<?php echo "md-" . $diseño ?>'><?php echo $diseño ?></label>
+                                <input type='radio' name='diseño' id='<?php echo "md-" . $diseno ?>'
+                                       value='<?php echo $diseno ?>'>
+                                <label for='<?php echo "md-" . $diseño ?>'><?php echo $diseno ?></label>
 
                             <?php } ?>
                         </div>
@@ -53,7 +57,7 @@ require_once HEADER ?>
                     <div class="form-group mx-auto">
                         <button type="submit" class="btn btn-primary">Guardar</button>
 
-                        <a href="index.php?type=gorra&function=index" class="btn btn-primary">
+                        <a href="index.php?type=gorras&function=index" class="btn btn-primary">
                             Cancelar</a>
                     </div>
                 </div>

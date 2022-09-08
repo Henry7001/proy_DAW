@@ -1,14 +1,14 @@
 <?php
-require_once 'model/dao/GorraDao.php';
-require_once 'model/dto/GorraDto.php';
-//gorra controller adaptado 
+//autor: Jean Paolo Alvarez7
+require_once 'model/dao/GorrasDao.php';
+require_once 'model/dto/GorrasDto.php';
 class GorrasController
 {
     private $model;
 
     public function __construct()
     {
-        $this->model = new GorraDao();
+        $this->model = new GorrasDao();
     }
 
     public function index()
@@ -37,9 +37,9 @@ class GorrasController
     {
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $gorras = new GorraDto();
+            $gorras = new GorrasDto();
             $gorras->setId(htmlentities($_POST['id']));
-            $gorras->setDiseño(htmlentities($_POST['diseno']));
+            $gorras->setDiseno(($_POST['diseno']));
             $gorras->setTalla(htmlentities($_POST['talla']));
             $gorras->setPrecio(htmlentities($_POST['precio']));
             $gorras->setCantidad(htmlentities($_POST['cantidad']));
@@ -61,6 +61,24 @@ class GorrasController
         }
     }
 
+    public function deleteGorras()
+    {
+        $id = htmlentities($_GET['id']);
+        $exito = $this->model->delete($id);
+        $msj = 'Gorra eliminada exitosamente';
+        $color = 'primary';
+        if (!$exito) {
+            $msj = "No se pudo realizar la eliminación";
+            $color = "danger";
+        }
+        if (!isset($_SESSION)) {
+            session_start();
+        };
+        $_SESSION['mensaje'] = $msj;
+        $_SESSION['color'] = $color;
+        //llamar a la vista
+        header('Location:index.php?type=gorras&f=index');
+    }
 
     public function view_edit()
     {
@@ -77,9 +95,9 @@ class GorrasController
     public function edit()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $gorras = new GorraDto();
+            $gorras = new GorrasDto();
             $gorras->setId(htmlentities($_POST['id']));
-            $gorras->setDiseño(htmlentities($_POST['diseno']));
+            $gorras->setDiseno(htmlentities($_POST['diseno']));
             $gorras->setTalla(htmlentities($_POST['talla']));
             $gorras->setPrecio(htmlentities($_POST['precio']));
             $gorras->setCantidad(htmlentities($_POST['cantidad']));

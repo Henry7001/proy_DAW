@@ -1,13 +1,12 @@
-/* JEAN PAOLO ALVAREZ VELEZ */
 <?php
-class gorraDto
+//autor: Jean Paolo Alvarez
+class GorrasDto
 {
     private $id;
-    private $diseño;
+    private $diseno;
     private $talla;
     private $precio;
     private $cantidad;
-    private $fechaActualizacion;
 
     public function getId()
     {
@@ -19,14 +18,14 @@ class gorraDto
         $this->id = $id;
     }
 
-    public function getDiseño()
+    public function getDiseno()
     {
-        return $this->diseño;
+        return $this->diseno;
     }
 
-    public function setDiseño($diseño)
+    public function setDiseno($diseno)
     {
-        $this->diseño = $diseño;
+        $this->diseno = $diseno;
     }
 
     public function getTalla()
@@ -57,15 +56,5 @@ class gorraDto
     public function setCantidad($cantidad)
     {
         $this->cantidad = $cantidad;
-    }
-
-    public function getFechaActualizacion()
-    {
-        return $this->fechaActualizacion;
-    }
-
-    public function setFechaActualizacion($fechaActualizacion)
-    {
-        $this->fechaActualizacion = $fechaActualizacion;
     }
 }

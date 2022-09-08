@@ -1,16 +1,17 @@
-<!--autor:Paolo Alvararez-->
 <?php
 require_once HEADER ?>
+<!--autor: Jean Paolo Alvarez -->
     <div class="container">
         <div class="card card-body">
-            <form action="index.php?type=gorra&function=edit" method="POST" name="formgorraEdit" id="formgorraEdit">
+            <form action="index.php?type=gorras&function=edit" method="POST" name="formgorraEdit" id="formgorraEdit">
                 <div class="form-row">
-                    <input type="hidden" name="id" value="<?php echo $gorra['id']?>">
+                    <input type="hidden" name="id" value="<?php echo $gorras['id']?>">
+
                     <div class="form-group col-sm-6">
                         <label for="talla">Talla</label>
                         <select id="talla" name="talla" class="form-control">
                             <?php foreach ($tallas as $talla) {
-                                $select = $talla == $gorra['talla'] ? 'selected="selected"' : ""
+                                $select = $talla == $gorras['talla'] ? 'selected="selected"' : ""
                                 ?>
                                 <option value="<?php echo $talla ?>" <?php echo $select ?>">
                                 <?php echo $talla ?>
@@ -26,7 +27,7 @@ require_once HEADER ?>
                     <div class="form-group col-sm-6">
                         <label for="precio">Precio</label>
                         <input name="precio" id="precio" class="form-control" type="number" min="1"
-                               placeholder="precio gorras" value="<?php echo $gorra['precio'] ?>"
+                               placeholder="precio gorras" value="<?php echo $gorras['precio'] ?>"
                                required>
                     </div>
 
@@ -34,20 +35,20 @@ require_once HEADER ?>
                     <div class="form-group col-sm-6">
                         <label for="cantidad">Cantidad</label>
                         <input id="cantidad" name="cantidad" class="form-control" type="number"
-                               value="<?php echo $gorra['cantidad'] ?>" min="1" required>
+                               value="<?php echo $gorras['cantidad'] ?>" min="1" required>
                     </div>
 
                     <div class="form-group col-sm-12">
                         <label for="modelo">Diseño</label>
                         <div>
                             <?php
-                            foreach ($diseños as $diseño) {
-                                $cheched = $diseño == $gorra['diseño'] ? "checked" : ""
+                            foreach ($disenos as $diseno) {
+                                $cheched = $diseno == $gorras['diseño'] ? "checked" : ""
                                 ?>
 
-                                <input type='radio' name='diseño' id='<?php echo "md-" . $diseño ?>'
-                                    <?php echo $cheched ?> value='<?php echo $diseño ?>'>
-                                <label for='<?php echo "md-" . $diseño ?>'><?php echo $diseño ?></label>
+                                <input type='radio' name='diseno' id='<?php echo "md-" . $diseno ?>'
+                                    <?php echo $cheched ?> value='<?php echo $diseno ?>'>
+                                <label for='<?php echo "md-" . $diseno ?>'><?php echo $diseno ?></label>
 
                             <?php } ?>
                         </div>
@@ -56,7 +57,7 @@ require_once HEADER ?>
                     <div class="form-group mx-auto">
                         <button type="submit" class="btn btn-primary">Actualizar</button>
 
-                        <a href="index.php?type=gorra&function=index" class="btn btn-primary">
+                        <a href="index.php?type=gorras&function=index" class="btn btn-primary">
                             Cancelar</a>
                     </div>
                 </div>
