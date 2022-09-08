@@ -1,12 +1,13 @@
+/* JEAN PAOLO ALVAREZ VELEZ */
 <?php
-//adaptado a gorras, falta cambiar los atributos
-class GorrasDto
+class gorraDto
 {
     private $id;
-    private $diseno;
+    private $diseño;
     private $talla;
     private $precio;
     private $cantidad;
+    private $fechaActualizacion;
 
     public function getId()
     {
@@ -18,14 +19,14 @@ class GorrasDto
         $this->id = $id;
     }
 
-    public function getDiseno()
+    public function getDiseño()
     {
-        return $this->diseno;
+        return $this->diseño;
     }
 
-    public function setDiseno($diseno)
+    public function setDiseño($diseño)
     {
-        $this->diseno = $diseno;
+        $this->diseño = $diseño;
     }
 
     public function getTalla()
@@ -56,5 +57,15 @@ class GorrasDto
     public function setCantidad($cantidad)
     {
         $this->cantidad = $cantidad;
+    }
+
+    public function getFechaActualizacion()
+    {
+        return $this->fechaActualizacion;
+    }
+
+    public function setFechaActualizacion($fechaActualizacion)
+    {
+        $this->fechaActualizacion = $fechaActualizacion;
     }
 }
