@@ -11,6 +11,7 @@ class gorraDao
     static private $getById = "SELECT * FROM gorras WHERE  id= :id";
     static private $create = "INSERT INTO gorras (diseño, talla, precio, cantidad, fecha_actualizacion) VALUES ( :diseño, :talla, :precio, :cantidad, :fecha)";
     static private $update = "UPDATE gorras SET diseño=:diseño, talla=:talla, precio=:precio, cantidad=:cantidad,  fecha_actualizacion=:fecha WHERE id=:id";
+    static private $delete = "DELETE FROM gorras WHERE id=:id";
 
 
     public function __construct()
@@ -24,6 +25,13 @@ class gorraDao
         $stmt = $this->con->prepare(gorraDao::$getAll);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function delete($id){
+        $stmt = $this->con->prepare(gorraDao::$delete);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        return $stmt->rowCount();
     }
 
     public function getById($id)

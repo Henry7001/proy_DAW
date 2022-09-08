@@ -40,6 +40,9 @@
                             <a class="btn btn-primary"
                                href="index.php?type=gorra&function=view_edit&id=<?php echo $fila['id']; ?>">
                                 <i class="fas fa-marker"></i></a>
+                            <a class="btn btn-danger"
+                                 href="index.php?type=gorra&function=delete&id=<?php echo $fila['id']; ?>">
+                                  <i class="fas fa-trash"></i></a>
                         </td>
                     </tr>
                 <?php } ?>

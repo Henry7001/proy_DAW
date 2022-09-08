@@ -104,4 +104,24 @@ class gorraController
             header('Location:index.php?type=gorra&f=index');
         }
     }
+
+    //funcion para eliminar
+    public function delete()
+    {
+        $id = $_REQUEST['id'];
+        $exito = $this->model->delete($id);
+        $msj = 'Gorra eliminada exitosamente';
+        $color = 'primary';
+        if (!$exito) {
+            $msj = "No se pudo realizar la eliminacion";
+            $color = "danger";
+        }
+        if (!isset($_SESSION)) {
+            session_start();
+        };
+        $_SESSION['mensaje'] = $msj;
+        $_SESSION['color'] = $color;
+        //llamar a la vista
+        header('Location:index.php?type=gorra&f=index');
+    }
 }
