@@ -1,5 +1,5 @@
+/* JEAN PAOLO ALVAREZ VELEZ */
 <?php
-//adaptado a gorras, falta cambiar los atributos
 class gorraDto
 {
     private $id;
