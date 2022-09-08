@@ -60,7 +60,7 @@ class ProveedoresController
 	
 	public function eliminarProveedor(){
 		$id = $_REQUEST['id'];
-        $proveedor = $this->model->delete($id);
+        $proveedor = $this->model->deletebyId($id);
 		header('Location:index.php?type=proveedores&f=index');
 	}
 
