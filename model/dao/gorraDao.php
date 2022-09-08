@@ -1,7 +1,7 @@
+/* JEAN PAOLO ALVAREZ VELEZ */
 <?php
 require_once "config/Conexion.php";
 require_once "model/dto/gorraDto.php";
-//adaptado a gorras- falta cambiar los sql sentencias
 class gorraDao
 {
     private $con;
