@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-09-2022 a las 01:56:04
+-- Tiempo de generación: 08-09-2022 a las 04:51:39
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -32,19 +32,18 @@ CREATE TABLE `gorras` (
   `diseño` tinytext DEFAULT NULL,
   `talla` varchar(4) DEFAULT NULL,
   `precio` float DEFAULT NULL,
-  `cantidad` int(11) DEFAULT NULL,
-  `fecha_actualizacion` date DEFAULT NULL
+  `cantidad` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `gorras`
 --
 
-INSERT INTO `gorras` (`id`, `diseño`, `talla`, `precio`, `cantidad`, `fecha_actualizacion`) VALUES
-(1, 'Animado', 'S', 12.5, 1, '0000-00-00'),
-(2, 'Animado', 'S', 12.5, 1, '2022-09-04'),
-(3, 'Personalizado', 'M', 38.5, 3, '2022-09-04'),
-(4, 'Animado', 'L', 24, 2, '2022-09-04');
+INSERT INTO `gorras` (`id`, `diseño`, `talla`, `precio`, `cantidad`) VALUES
+(1, 'Animado', 'S', 12.5, 1),
+(2, 'Animado', 'S', 12.5, 1),
+(3, 'Personalizado', 'M', 38.5, 3),
+(4, 'Animado', 'L', 24, 2);
 
 --
 -- Índices para tablas volcadas
