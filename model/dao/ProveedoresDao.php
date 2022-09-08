@@ -26,12 +26,11 @@ class ProveedoresDao
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 	
-	public function deletebyId($id)
+	public function delete($id)
     {
         $stmt = $this->con->prepare(ProveedoresDao::$deletebyId);
         $data = ["id" => $id];
         $stmt->execute($data);
-        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     public function update(ProveedoresDto $Proveedores)

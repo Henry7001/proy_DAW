@@ -28,27 +28,23 @@
                             <th>Tiempo</th>
                             <th>Tipo</th>
                             <th>Inicio Contrato</th>
-                            <th>Fin  Contrato</th>
+                            <th>Fin de Contrato</th>
                             <th>Fecha Ingreso</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach($result as $proveedor): ?>
                         <tr>
-                        <td><?php echo $proveedor['id'] ?></td>
-                        <td><?php echo $proveedor['descripcion'] ?></td>
-                        <td><?php echo $proveedor['tiempoContrato'] ?></td>
-                        <td><?php echo $proveedor['tipoContrato'] ?></td>
-                        <td><?php echo $proveedor['anioInicioContrato'] ?></td>
-                        <td><?php echo $proveedor['anioFinContrato'] ?></td>
+                        <td><?php echo $proveedor['Id'] ?></td>
+                        <td><?php echo $proveedor['Descripcion'] ?></td>
+                        <td><?php echo $proveedor['TiempoContrato'] ?></td>
+                        <td><?php echo $proveedor['TipoContrato'] ?></td>
+                        <td><?php echo $proveedor['AnioInicioContrato'] ?></td>
+                        <td><?php echo $proveedor['AnioFinContrato'] ?></td>
 						<td><?php echo $proveedor['fechaIngreso'] ?></td>
-
                         <td>
-                            <a href="index.php?type=proveedores&function=editarProveedor&id=<?php echo $proveedor['id'] ?>" class="btn btn-primary"><i class="fas fa-edit"></i> Editar</a>
-                        </td>
-						<td>
-                            <a href="index.php?type=proveedores&function=eliminarProveedor&id=<?php echo $proveedor['id'] ?>" class="btn btn-danger"><i class="fas fa-edit"></i> Eliminar</a>
-                        </td>
+                            <a href="index.php?type=proveedores&function=editProveedor&id=<?php echo $proveedor['Id'] ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                            <a href="index.php?type=proveedores&function=eliminarProveedor&id=<?php echo $proveedor['Id'] ?>" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>                 
                         </tr>
                         <?php endforeach; ?>
                     </tbody>
