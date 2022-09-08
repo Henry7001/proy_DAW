@@ -1,6 +1,5 @@
-// autor: Solórzano Zambrano Ricardo
 <?php
-
+// autor: Solórzano Zambrano Ricardo
 class ClientesDto
 {
     private $id;

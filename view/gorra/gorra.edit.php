@@ -1,6 +1,6 @@
+<!--autor:Paolo Alvararez-->
 <?php
 require_once HEADER ?>
-//adaptado a gorra2
     <div class="container">
         <div class="card card-body">
             <form action="index.php?type=gorra&function=edit" method="POST" name="formgorraEdit" id="formgorraEdit">

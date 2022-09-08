@@ -1,5 +1,5 @@
+<!--autor:Paolo Alvararez-->
 <?php require_once HEADER ?>
-//adaptado a gorras2
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
