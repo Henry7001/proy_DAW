@@ -34,6 +34,9 @@
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="index.php?type=gorra">Gorras</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="index.php?type=proveedores">Proveedores</a>
               </ul>
             </div>
           </div>
