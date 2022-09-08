@@ -1,7 +1,7 @@
 <?php
 require_once 'model/dao/gorraDao.php';
 require_once 'model/dto/gorraDto.php';
-//gorra controller adaptado 
+/* JEAN PAOLO ALVAREZ VELEZ */
 class gorraController
 {
     private $model;
