@@ -45,13 +45,9 @@
 
                         <td>
                             <a href="index.php?type=proveedores&function=editarProveedor&id=<?php echo $proveedor['id'] ?>" class="btn btn-primary"><i class="fas fa-edit"></i> Editar</a>
-<<<<<<< Updated upstream
                         </td>
 						<td>
                             <a href="index.php?type=proveedores&function=eliminarProveedor&id=<?php echo $proveedor['id'] ?>" class="btn btn-danger"><i class="fas fa-edit"></i> Eliminar</a>
-=======
-                            <a href="index.php?type=proveedores&function=eliminarProveedor&id=<?php echo $proveedor['id'] ?>" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar</a>
->>>>>>> Stashed changes
                         </td>
                         </tr>
                         <?php endforeach; ?>
