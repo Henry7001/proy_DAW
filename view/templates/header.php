@@ -33,7 +33,7 @@
                 <a class="nav-link" aria-current="page" href="index.php?type=clientes">Clientes</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="index.php?type=gorra">Gorras</a>
+                <a class="nav-link" aria-current="page" href="index.php?type=gorras">Gorras</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="index.php?type=proveedores">Proveedores</a>
