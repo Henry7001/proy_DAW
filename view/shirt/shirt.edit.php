@@ -1,5 +1,6 @@
 <?php
-require_once HEADER ?>
+require_once HEADER
+//autor:Luis Byron Vargas Peñafiel?>
 
     <div class="container">
         <div class="card card-body">

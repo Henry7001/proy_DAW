@@ -1,7 +1,7 @@
 <?php
 require_once 'model/dao/ShirtDao.php';
 require_once 'model/dto/ShirtDto.php';
-
+//autor:Luis Byron Vargas Peñafiel
 class ShirtController
 {
     private $model;

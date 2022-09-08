@@ -1,7 +1,7 @@
 <?php
 require_once "config/Conexion.php";
 require_once "model/dto/ShirtDto.php";
-
+//autor:Luis Byron Vargas Peñafiel
 class ShirtDao
 {
     private $con;
