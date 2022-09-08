@@ -11,6 +11,7 @@ class ProveedoresDao
     static private $create = "INSERT INTO Proveedores (descripcion, tiempoContrato, tipoContrato, anioInicioContrato, anioFinContrato, fechaIngreso) VALUES ( :descripcion, :tiempoContrato, :tipoContrato, :anioInicioContrato, :anioFinContrato, :fecha)";
     static private $update = "UPDATE Proveedores SET descripcion = :descripcion, tiempoContrato = :tiempoContrato, tipoContrato = :tipoContrato, anioInicioContrato = :anioInicioContrato, anioFinContrato = :anioFinContrato, fechaIngreso = :fecha WHERE id = :id";
     static private $getById = "SELECT * FROM Proveedores WHERE  id= :id";
+    static private $deletebyId = "DELETE FROM Proveedores WHERE  id= :id";
 
     public function __construct()
     {
@@ -20,6 +21,14 @@ class ProveedoresDao
     public function getById($id)
     {
         $stmt = $this->con->prepare(ProveedoresDao::$getById);
+        $data = ["id" => $id];
+        $stmt->execute($data);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+	
+	public function deletebyId($id)
+    {
+        $stmt = $this->con->prepare(ProveedoresDao::$deletebyId);
         $data = ["id" => $id];
         $stmt->execute($data);
         return $stmt->fetch(PDO::FETCH_ASSOC);
