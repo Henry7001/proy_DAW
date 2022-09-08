@@ -1,5 +1,5 @@
 <?php
-
+//autor:Luis Byron Vargas Peñafiel
 class ShirtDto
 {
     private $id;
